@@ -1,0 +1,88 @@
+.projects {
+    padding: 50px;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+  }
+  
+  .projects-title {
+    font-size: 3rem;
+    color: #007BFF; /* Azul para el título */
+    margin-bottom: 40px;
+  }
+  
+  .project-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .project-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .project-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #007BFF;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .project-description p {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  .tech-icons {
+    margin-top: 15px;
+  }
+  
+  .tech-icon {
+    width: 30px;
+    margin: 5px;
+  }
+  
+  .pagination {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  
+  .arrow {
+    background-color: transparent;
+    border: none;
+    color: #007BFF;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .arrow:hover {
+    color: #ffffff;
+  }
+  
+  .blurred-projects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+  }
+  

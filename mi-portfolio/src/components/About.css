@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+.about-me {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90vh;
+  color: #00ace6;
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  padding: 0 50px;
+}
+
+.background-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/img/Fondo-2.jpg');
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
+  color: blue;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.level-card {
+  width: 250px;
+  height: 25px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.level-card:hover {
+  background-color: #333;
+}
+
+.level-card.active {
+  background-color: blue;
+  color: #000;
+}
+
+.right-section {
+  flex: 1;
+  max-width: 500px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  color: #fff;
+  margin-left: 50px;
+  line-height: 50px;
+  
+}

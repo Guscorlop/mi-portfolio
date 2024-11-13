@@ -6,7 +6,7 @@ import linkedinIcon from '../assets/img/linkedinIcon.svg';
 import './Home.css';
 
 const Home = () => {
-  const [selected, setSelected] = useState(0); 
+  const [selected, setSelected] = useState(0);
 
   useEffect(() => {
     // Animación de la información personal
@@ -24,6 +24,12 @@ const Home = () => {
 
   // Función para manejar las teclas de flechas
   const handleKeyDown = (event) => {
+    // Prevenir el scroll de la página
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      event.preventDefault();
+    }
+
+    // Cambiar la selección del menú con las flechas
     if (event.key === 'ArrowDown') {
       setSelected((prev) => (prev + 1) % 6); 
     } else if (event.key === 'ArrowUp') {
