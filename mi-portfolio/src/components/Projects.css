@@ -1,88 +1,185 @@
+
 .projects {
-    padding: 50px;
-    background-color: #121212;
-    color: white;
-    text-align: center;
-  }
-  
-  .projects-title {
-    font-size: 3rem;
-    color: #007BFF; /* Azul para el título */
-    margin-bottom: 40px;
-  }
-  
-  .project-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-  }
-  
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: var(--highlight-color);
+  text-align: center;
+  height: 80vh;
+}
+
+.projects-title {
+  font-size: 2.5vw;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.project-container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.project-card {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.5s, opacity 0.5s;
+  box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.project-card.center {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 2;
+}
+
+.project-card.left,
+.project-card.right {
+  opacity: 0.5;
+  filter: blur(5px);
+  transform: scale(0.9);
+  z-index: 1;
+}
+
+.project-card.left {
+  left: -250px;
+}
+
+.project-card.right {
+  right: -250px;
+}
+
+.project-card.hidden {
+  display: none;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.project-info {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.play-button {
+  background-color: var(--primary-color);
+  color: var(--highlight-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: var(--button-hover);
+}
+
+.arrow {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  margin: 0 20px;
+  transition: color 0.3s;
+}
+
+.arrow:hover {
+  color: var(--highlight-color);
+}
+
+/* Media Query for Responsiveness */
+
+@media (max-width: 1024px) {
   .project-card {
-    background-color: #1e1e1e;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 300px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 150px;
   }
-  
-  .project-header h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #007BFF;
-  }
-  
-  .project-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .project-description p {
-    font-size: 1rem;
-    margin: 10px 0;
-  }
-  
-  .tech-icons {
-    margin-top: 15px;
-  }
-  
-  .tech-icon {
-    width: 30px;
-    margin: 5px;
-  }
-  
-  .pagination {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-  }
-  
-  .arrow {
-    background-color: transparent;
-    border: none;
-    color: #007BFF;
+
+  .projects-title {
     font-size: 2rem;
-    cursor: pointer;
-    transition: color 0.3s;
   }
-  
-  .arrow:hover {
-    color: #ffffff;
+
+  .project-info {
+    font-size: 0.9rem;
   }
-  
-  .blurred-projects {
-    position: absolute;
-    top: 0;
+}
+
+@media (max-width: 768px) {
+  .project-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .project-card {
+    width: 80%;
+    margin-bottom: 20px;
     left: 0;
     right: 0;
-    bottom: 0;
-    backdrop-filter: blur(10px);
-    z-index: -1;
+    transform: scale(1);
+    filter: none;
+    opacity: 1;
   }
-  
+
+  .project-card.hidden, 
+  .project-card.left, 
+  .project-card.right {
+    display: none;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .projects-title {
+    font-size: 1.8rem;
+  }
+
+  .project-info {
+    font-size: 0.8rem;
+  }
+
+  .play-button {
+    font-size: 8px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 300px) {
+  .project-card.center {
+    font-size: 0.5rem;
+  }
+
+  .project-title, .projects-title {
+    font-size: 0.8rem;
+  }
+
+  .project-info {
+    font-size: 0.5rem;
+  }
+
+  .play-button {
+    font-size: 10px;
+    padding: 8px 16px;
+  }
+}

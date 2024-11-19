@@ -9,32 +9,17 @@ const Home = () => {
   const [selected, setSelected] = useState(0);
 
   useEffect(() => {
-    // Animación de la información personal
-    gsap.fromTo(".info", 
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 1.5, ease: "power4.out" }
-    );
-
-    // Animación de los botones
-    gsap.fromTo(".menu-button", 
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 1, ease: "power4.out", stagger: 0.2 }
+    gsap.fromTo(
+      '.home__info, .home__menu-button',
+      { opacity: 0, y: -30 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power4.out', stagger: 0.2 }
     );
   }, []);
 
-  // Función para manejar las teclas de flechas
   const handleKeyDown = (event) => {
-    // Prevenir el scroll de la página
-    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-      event.preventDefault();
-    }
-
-    // Cambiar la selección del menú con las flechas
-    if (event.key === 'ArrowDown') {
-      setSelected((prev) => (prev + 1) % 6); 
-    } else if (event.key === 'ArrowUp') {
-      setSelected((prev) => (prev - 1 + 6) % 6); 
-    }
+    if (['ArrowUp', 'ArrowDown'].includes(event.key)) event.preventDefault();
+    if (event.key === 'ArrowDown') setSelected((prev) => (prev + 1) % 4);
+    if (event.key === 'ArrowUp') setSelected((prev) => (prev - 1 + 4) % 4);
   };
 
   useEffect(() => {
@@ -43,33 +28,35 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      {/* Información personal */}
-      <div className="info">
-        <h1>Hello, I'm Gustavo Correa Lopez.</h1>
-        <p><span>Multimedia Engineer</span> and <span>Front End Developer</span> with focus on web animations and responsive design</p>
-        <div className="social-icons">
-          <a href="https://github.com/Guscorlop" target="_blank" rel="noopener noreferrer">
+    <div className="home">
+      <header className="home__info">
+        <h1>Gustavo Correa Lopez</h1>
+        <p>
+          <span>Multimedia Engineer</span> and <span>Front-End Developer</span> focused on web animations and responsive design
+        </p>
+        <nav className="home__social-icons">
+          <a href="https://github.com/Guscorlop" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
             <img src={githubIcon} alt="GitHub" />
           </a>
-          <a href="https://www.tiktok.com/Guscorlop" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.tiktok.com/Guscorlop" target="_blank" rel="noopener noreferrer" aria-label="TikTok Profile">
             <img src={tiktokIcon} alt="TikTok" />
           </a>
-          <a href="https://www.linkedin.com/in/gustavolopez17" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/gustavolopez17" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
             <img src={linkedinIcon} alt="LinkedIn" />
           </a>
-        </div>
-      </div>
+        </nav>
+      </header>
 
-      {/* Menú */}
-      <div className="menu">
-        <button className={`menu-button ${selected === 0 ? 'selected' : ''}`}>Inicio</button>
-        <button className={`menu-button ${selected === 1 ? 'selected' : ''}`}>About</button>
-        <button className={`menu-button ${selected === 2 ? 'selected' : ''}`}>Skills</button>
-        <button className={`menu-button ${selected === 3 ? 'selected' : ''}`}>Project</button>
-        <button className={`menu-button ${selected === 4 ? 'selected' : ''}`}>Download CV</button>
-        <button className={`menu-button ${selected === 5 ? 'selected' : ''}`}>Contact</button>
-      </div>
+      <nav className="home__menu">
+        {['About', 'Projects', 'Download CV', 'Contact'].map((item, index) => (
+          <button
+            key={item}
+            className={`home__menu-button ${selected === index ? 'home__menu-button--selected' : ''}`}
+          >
+            {item}
+          </button>
+        ))}
+      </nav>
     </div>
   );
 };

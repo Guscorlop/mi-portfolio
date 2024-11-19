@@ -1,29 +1,40 @@
 import React, { useState } from 'react';
-import './Projects.css'; // Asegúrate de tener tu CSS bien estructurado
+import './Projects.css';
 
 const projects = [
   {
     id: 1,
-    title: "Proyecto 1",
-    description: "Descripción breve del proyecto 1.",
-    image: "../assets/img/Fondo-1.avif", // Imagen del proyecto
-    tech: ["HTML", "CSS", "JavaScript"],
+    title: "POSTVISUAL",
+    difficulty: "Fácil",
+    developmentTime: "2 semanas",
+    tech: ["React", "JavaScript", "CSS"],
+    image: "/images/postvisual.png",
   },
   {
     id: 2,
-    title: "Proyecto 2",
-    description: "Descripción breve del proyecto 2.",
-    image: "../assets/img/Fondo-1.avif",
-    tech: ["React", "Node.js"],
+    title: "Otro Proyecto",
+    difficulty: "Intermedio",
+    developmentTime: "3 semanas",
+    tech: ["HTML", "CSS", "JavaScript"],
+    image: "/images/otherproject.png",
   },
   {
     id: 3,
-    title: "Proyecto 3",
-    description: "Descripción breve del proyecto 3.",
-    image: "../assets/img/Fondo-1.avif",
-    tech: ["Python", "Django"],
+    title: "Proyecto Avanzado",
+    difficulty: "Difícil",
+    developmentTime: "1 mes",
+    tech: ["Python", "Django", "PostgreSQL"],
+    image: "/images/advancedproject.png",
   },
-  // Añadir más proyectos según sea necesario
+  {
+    id: 4,
+    title: "Proyecto 4",
+    difficulty: "Difícil",
+    developmentTime: "1 mes",
+    tech: ["Python", "Django", "PostgreSQL"],
+    image: "/images/advancedproject.png",
+  },
+  // Agrega más proyectos si necesitas
 ];
 
 const Projects = () => {
@@ -37,37 +48,58 @@ const Projects = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
   };
 
-  const renderTechIcons = (tech) => {
-    return tech.map((item, index) => (
-      <img key={index} src={`/icons/${item.toLowerCase()}.png`} alt={item} className="tech-icon" />
-    ));
+  const getProjectClass = (index) => {
+    const position = (index - currentIndex + projects.length) % projects.length;
+    if (position === 0) return "project-card center";
+    if (position === 1) return "project-card right";
+    if (position === projects.length - 1) return "project-card left";
+    return "project-card hidden";
   };
 
   return (
     <section className="projects">
-      <h2 className="projects-title">Projects</h2>
-      <div className="project-wrapper">
-        <div className="project-card">
-          <div className="project-header">
-            <h3>{projects[currentIndex].title}</h3>
-          </div>
-          <div className="project-image">
-            <img src={projects[currentIndex].image} alt={projects[currentIndex].title} />
-          </div>
-          <div className="project-description">
-            <p>{projects[currentIndex].description}</p>
-          </div>
-          <div className="tech-icons">
-            {renderTechIcons(projects[currentIndex].tech)}
-          </div>
-        </div>
-        <div className="pagination">
-          <button className="arrow left" onClick={prevProject}>←</button>
-          <button className="arrow right" onClick={nextProject}>→</button>
-        </div>
-      </div>
-      <div className="blurred-projects">
-        {/* Aquí podrías agregar más proyectos u otros elementos que se muestren en el efecto blur */}
+      <h2 className="projects-title">Mis Proyectos</h2>
+      <div className="project-container">
+        <button
+          className="arrow left"
+          aria-label="Proyecto anterior"
+          onClick={prevProject}
+        >
+          ◀
+        </button>
+
+        {projects.map((project, index) => {
+          const { id, title, image, difficulty, developmentTime, tech } = project;
+          return (
+            <div key={id} className={getProjectClass(index)}>
+              <h3 className="project-title">{title}</h3>
+              <img
+                src={image}
+                alt={`Imagen de ${title}`}
+                className="project-image"
+                loading="lazy" // Mejora del rendimiento
+              />
+              <p className="project-info">
+                <strong>Dificultad:</strong> {difficulty}
+              </p>
+              <p className="project-info">
+                <strong>Tiempo de desarrollo:</strong> {developmentTime}
+              </p>
+              <p className="project-info">
+                <strong>Lenguajes de desarrollo:</strong> {tech.join(", ")}
+              </p>
+              <button className="play-button">JUGAR</button>
+            </div>
+          );
+        })}
+
+        <button
+          className="arrow right"
+          aria-label="Siguiente proyecto"
+          onClick={nextProject}
+        >
+          ▶
+        </button>
       </div>
     </section>
   );

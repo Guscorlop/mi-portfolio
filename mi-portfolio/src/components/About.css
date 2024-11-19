@@ -1,37 +1,44 @@
+/* Importa la fuente y define variables para colores y otros estilos */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
+
+/* Contenedor principal */
 .about-me {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: space-between;
   height: 90vh;
-  color: #00ace6;
+  color: var(--primary-color);
   font-family: 'Press Start 2P', cursive;
   position: relative;
   padding: 0 50px;
 }
 
+/* Fondo desenfocado */
 .background-blur {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../assets/img/Fondo-2.jpg');
-    filter: blur(8px);
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/img/Fondo-2.jpg');
+  filter: blur(8px);
+  z-index: -1;
 }
 
+/* Título centrado */
 .title {
   position: absolute;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2em;
-  color: blue;
+  font-size: 3vw;
+  color: var(--highlight-color);
 }
 
+/* Sección izquierda con tarjetas */
 .left-section {
   display: flex;
   flex-direction: column;
@@ -39,12 +46,13 @@
   gap: 15px;
 }
 
+/* Tarjetas de nivel */
 .level-card {
   width: 250px;
   height: 25px;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  background-color: var(--background-dark);
+  color: var(--text-color-light);
   text-align: center;
   border-radius: 8px;
   cursor: pointer;
@@ -56,18 +64,62 @@
 }
 
 .level-card.active {
-  background-color: blue;
+  background-color: var(--highlight-color);
   color: #000;
 }
 
+/* Sección derecha de la descripción */
 .right-section {
-  flex: 1;
   max-width: 500px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--background-dark);
   border-radius: 10px;
-  color: #fff;
+  color: var(--text-color-light);
   margin-left: 50px;
-  line-height: 50px;
-  
+  line-height: 1.5;
+}
+
+/* Media query para pantallas medianas */
+@media (max-width: 768px) {
+  .about-me {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .left-section {
+    margin-top: 40px;
+  }
+
+  .level-card {
+    width: 20vw;
+    font-size: 2vw;
+    padding: 5px;
+  }
+
+  .right-section {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 20px;
+    background-color: transparent;
+    justify-items: center;
+  }
+
+  .description {
+    max-width: 200px;
+    padding: 20px;
+    background-color: var(--background-dark);
+    border-radius: 10px;
+    line-height: 1.2;
+    font-size: 0.8rem;
+  }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 250px) {
+  .description,
+  .description p {
+    max-width: 90%;
+    font-size: 0.6rem;
+  }
 }
