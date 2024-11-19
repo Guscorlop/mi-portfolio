@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
-import githubIcon from '../assets/img/githubIcon.svg';
-import tiktokIcon from '../assets/img/tiktokIcon.svg';
-import linkedinIcon from '../assets/img/linkedinIcon.svg';
+import githubIcon from '../assets/icon/githubIcon.svg';
+import tiktokIcon from '../assets/icon/tiktokIcon.svg';
+import linkedinIcon from '../assets/icon/linkedinIcon.svg';
 import './Home.css';
 
 const Home = () => {
@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <div className="home">
       <header className="home__info">
-        <h1>Gustavo Correa Lopez</h1>
+        <h1>Hi, I am Gustavo Correa Lopez</h1>
         <p>
           <span>Multimedia Engineer</span> and <span>Front-End Developer</span> focused on web animations and responsive design
         </p>

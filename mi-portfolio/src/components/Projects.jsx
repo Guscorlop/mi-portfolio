@@ -4,27 +4,28 @@ import './Projects.css';
 const projects = [
   {
     id: 1,
-    title: "POSTVISUAL",
-    difficulty: "Fácil",
-    developmentTime: "2 semanas",
+    title: "Postvisual",
+    difficulty: "Intermedio",
+    developmentTime: "4 semanas",
     tech: ["React", "JavaScript", "CSS"],
-    image: "/images/postvisual.png",
+    image: "imagen",
+    link: "https://postvisualstudio.com/",
   },
   {
     id: 2,
-    title: "Otro Proyecto",
+    title: "Guitarla",
     difficulty: "Intermedio",
     developmentTime: "3 semanas",
     tech: ["HTML", "CSS", "JavaScript"],
-    image: "/images/otherproject.png",
+    image: "imagen",
   },
   {
     id: 3,
-    title: "Proyecto Avanzado",
+    title: "Calculador de Propinas",
     difficulty: "Difícil",
     developmentTime: "1 mes",
     tech: ["Python", "Django", "PostgreSQL"],
-    image: "/images/advancedproject.png",
+    image: "imagen",
   },
   {
     id: 4,
@@ -32,9 +33,8 @@ const projects = [
     difficulty: "Difícil",
     developmentTime: "1 mes",
     tech: ["Python", "Django", "PostgreSQL"],
-    image: "/images/advancedproject.png",
+    image: "imagen",
   },
-  // Agrega más proyectos si necesitas
 ];
 
 const Projects = () => {
@@ -58,7 +58,7 @@ const Projects = () => {
 
   return (
     <section className="projects">
-      <h2 className="projects-title">Mis Proyectos</h2>
+      <h2 className="projects-title">MY PROJECTS</h2>
       <div className="project-container">
         <button
           className="arrow left"
@@ -69,15 +69,15 @@ const Projects = () => {
         </button>
 
         {projects.map((project, index) => {
-          const { id, title, image, difficulty, developmentTime, tech } = project;
+          const { id, title, image, difficulty, developmentTime, tech, link } = project;
           return (
             <div key={id} className={getProjectClass(index)}>
               <h3 className="project-title">{title}</h3>
               <img
-                src={image}
+                src={`/img/${image}.png`}
                 alt={`Imagen de ${title}`}
                 className="project-image"
-                loading="lazy" // Mejora del rendimiento
+                loading="lazy" 
               />
               <p className="project-info">
                 <strong>Dificultad:</strong> {difficulty}
@@ -88,7 +88,7 @@ const Projects = () => {
               <p className="project-info">
                 <strong>Lenguajes de desarrollo:</strong> {tech.join(", ")}
               </p>
-              <button className="play-button">JUGAR</button>
+              <button className="play-button"><a href={link}>JUGAR</a></button>
             </div>
           );
         })}

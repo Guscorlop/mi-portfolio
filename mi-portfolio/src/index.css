@@ -1,23 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
-  --color-background: black;
-  --color-primary: #00ace6;
-  --color-secondary: white;
-  --highlight-color: blue;
-  --color-text: white;
-  --color-hover-bg: blue;
-  --color-hover-text: black;
-  --text-color-light: #fff;
-  --background-dark: rgba(0, 0, 0, 0.8);
+  --color-primary: #03738C;
+  --color-secondary: #049DD9;
+  --color-tree: #020659;
+  --color-four: #139899;
 }
-
-
-
-  
-  
-  
-  
 
 html{
   margin: 0;

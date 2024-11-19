@@ -3,13 +3,15 @@
   padding: 20px;
   background-color: #1a1a1a;
   color: var(--highlight-color);
+  align-content: center;
   text-align: center;
-  height: 80vh;
+  align-items: center;
+  height: 100Vh;
 }
 
 .projects-title {
   font-size: 2.5vw;
-  color: var(--primary-color);
+  color: var(--color-secondary);
   margin-bottom: 10px;
 }
 
@@ -22,17 +24,17 @@
 }
 
 .project-card {
-  background-color: var(--secondary-color);
+  background-color: var(--color-tree);
   border-radius: 10px;
   padding: 10px;
-  width: 200px;
+  width: 230px;
   text-align: center;
   transition: transform 0.5s, opacity 0.5s;
-  box-shadow: 0 4px 8px var(--card-shadow);
+  box-shadow: 0 4px 8px var(--color-tree);
 }
 
 .project-card.center {
-  transform: scale(1.1);
+  transform: scale(1);
   opacity: 1;
   z-index: 2;
 }
@@ -41,7 +43,7 @@
 .project-card.right {
   opacity: 0.5;
   filter: blur(5px);
-  transform: scale(0.9);
+  transform: scale(0.8);
   z-index: 1;
 }
 
@@ -59,7 +61,7 @@
 
 .project-title {
   font-size: 1.5rem;
-  color: var(--primary-color);
+  color: white;
   margin-bottom: 15px;
 }
 
@@ -71,13 +73,20 @@
 }
 
 .project-info {
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin: 5px 0;
+  text-align: left;
+  color: var(--color-secondary);
+  line-height: 1.2;
+}
+
+.project-info strong{
+  color: white;
 }
 
 .play-button {
-  background-color: var(--primary-color);
-  color: var(--highlight-color);
+  background-color: var(--color-secondary);
+  color: whitesmoke;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -88,48 +97,54 @@
 }
 
 .play-button:hover {
-  background-color: var(--button-hover);
+  background-color: var(--color-primary);
 }
 
 .arrow {
   background: transparent;
   border: none;
   font-size: 2rem;
-  color: var(--primary-color);
+  color: var(--color-primary);
   cursor: pointer;
   margin: 0 20px;
   transition: color 0.3s;
 }
 
 .arrow:hover {
-  color: var(--highlight-color);
+  color: var(--color-tree);
 }
 
 /* Media Query for Responsiveness */
 
 @media (max-width: 1024px) {
   .project-card {
-    width: 150px;
+    width: 200px;
   }
 
   .projects-title {
     font-size: 2rem;
   }
+  .project-title{
+    font-size: 1.2rem;
+  }
 
   .project-info {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 }
 
 @media (max-width: 768px) {
+  .projects-title {
+    font-size: 1.8rem;
+  }
   .project-container {
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 25px;
   }
 
   .project-card {
-    width: 80%;
+    width: 250px;
     margin-bottom: 20px;
     left: 0;
     right: 0;
@@ -146,13 +161,20 @@
 
   .arrow {
     font-size: 1.5rem;
-    margin: 10px;
+    margin: 5px;
   }
 }
 
 @media (max-width: 320px) {
+  .projects{
+    height: 80vh;
+  }
   .projects-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
   }
 
   .project-info {
@@ -166,6 +188,7 @@
 }
 
 @media (max-width: 300px) {
+
   .project-card.center {
     font-size: 0.5rem;
   }
